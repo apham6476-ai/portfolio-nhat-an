@@ -149,6 +149,22 @@ html[data-b2b="on"] .b2b-intro{display:block;animation:b2bFail .6s 7s forwards}
 }
 
 
+</style><style id="fx-css">/* ===== Marquee tagline ===== */
+body .marquee{overflow:hidden!important;white-space:nowrap!important;padding:clamp(14px,2vw,26px) 0!important;border-block:1px solid rgba(0,102,207,.14)}
+body .marquee>div{display:inline-flex!important;align-items:center;width:max-content!important;animation:fxMarq 36s linear infinite!important;will-change:transform}
+body .marquee:hover>div{animation-play-state:paused!important}
+body .marquee span{display:inline-flex!important;align-items:center;flex:none;padding:0 clamp(18px,2.6vw,40px)!important;font-size:clamp(22px,3.6vw,48px)!important;font-weight:650!important;letter-spacing:-.02em;text-transform:uppercase;line-height:1.1;color:#0a2a55}
+body .marquee span::after{content:"";width:.34em;height:.34em;margin-left:clamp(18px,2.6vw,40px);border-radius:50%;background:#0066cf;opacity:.85}
+@keyframes fxMarq{to{transform:translate3d(-50%,0,0)}}
+
+/* ===== Hiện dần khi cuộn ===== */
+.sr{opacity:0;transform:translate3d(0,38px,0);will-change:opacity,transform;
+  transition:opacity .95s cubic-bezier(.2,.7,.2,1) var(--sr-d,0ms),transform 1.05s cubic-bezier(.2,.7,.2,1) var(--sr-d,0ms)}
+.sr.sr-left{transform:translate3d(-54px,0,0)}
+.sr.sr-right{transform:translate3d(54px,0,0)}
+.sr.sr-zoom{transform:translate3d(0,26px,0) scale(.94)}
+.sr.sr-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.sr{opacity:1!important;transform:none!important;transition:none!important}}
 </style></head><body><div class="b2b-intro" id="b2b-intro" role="dialog" aria-label="Giới thiệu" aria-modal="true"><canvas aria-hidden="true"></canvas><div class="b2b-vignette" aria-hidden="true"></div><div class="b2b-hud"><div class="b2b-top"><span class="b2b-brand">NHẬT AN<i>.</i></span><span data-en="Portfolio 2026">Portfolio 2026</span></div><div class="b2b-copy"><p class="b2b-eyebrow"><span class="dot"></span><span data-en="B2B Tech Marketing">Marketing B2B công nghệ</span></p><h1 class="b2b-title" aria-label="Phạm Nhật An"><span class="ln"><span>Phạm</span></span><span class="ln"><span class="grad">Nhật An</span></span></h1><p class="b2b-tag" data-en="Turning technical value into content that buyers understand.">Biến giá trị kỹ thuật thành nội dung người mua hiểu được.</p></div><div class="b2b-bottom"><ol class="b2b-steps" aria-hidden="true"><li><b>01</b><span data-en="Buyer research">Nghiên cứu người mua</span></li><li><b>02</b><span data-en="Content &amp; SEO">Nội dung &amp; SEO</span></li><li><b>03</b><span data-en="Measurement">Đo lường</span></li></ol><div class="b2b-right"><div class="b2b-progress" aria-hidden="true"><span class="b2b-pct">0%</span><span class="b2b-bar"><i></i></span></div><button class="b2b-skip" type="button"><span data-en="Skip">Bỏ qua</span><kbd>Esc</kbd></button></div></div></div></div><div class="intro" id="intro" aria-label="Intro"><canvas aria-hidden="true"></canvas><div class="bar t"></div><div class="bar b"></div><div class="intro-stage" aria-hidden="true"><p class="intro-line">Mọi hành trình đều bắt đầu từ một cú nhảy.</p><div><h2 class="intro-title"></h2><p class="intro-sub">MARKETING · CONTENT · SEO</p></div></div><button class="intro-skip" type="button">Bỏ qua</button></div><div class="global-nature" aria-hidden="true"><svg class="bird" style="--top:16%;--speed:37s;--delay:-9s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:22%;--speed:45s;--delay:-24s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:12%;--speed:51s;--delay:-34s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:30%;--speed:61s;--delay:-5s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="shore " viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg><svg class="shore back" viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg></div><div class="sound-dock"><button id="sound-toggle" aria-pressed="false">♫ Bật âm thanh<small>Biển · chim · nhạc nhẹ</small></button><label>Âm lượng<br><input id="sound-volume" type="range" min="0" max="100" value="25" aria-label="Âm lượng âm thanh nền"></label><span id="sound-status" class="sr-only" role="status"></span></div>
 <a href="#experience" class="skip">Đi đến kinh nghiệm</a><div class="progress" aria-hidden="true"></div>
 <header><nav class="wrap nav" aria-label="Điều hướng chính"><a href="#home" class="brand">NHẬT AN<span>.</span></a><div class="navlinks" id="navlinks"><a href="#experience">Kinh nghiệm</a><a href="#works">Hình ảnh</a><a href="#videos">Video</a><a href="#b2b">Dự án B2B</a><a href="#contact">Liên hệ</a></div><button class="lang" id="lang" data-l="vi" aria-label="Switch to English"><span>VI</span><span>EN</span></button><button class="motion" id="motion" aria-pressed="true">Hiệu ứng: bật</button><button class="menu" id="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Mở menu">☰</button></nav></header>
@@ -522,5 +538,170 @@ html[data-b2b="on"] .b2b-intro{display:block;animation:b2bFail .6s 7s forwards}
   el.classList.add("play");
   if (skipBtn) { try { skipBtn.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } }
   raf = requestAnimationFrame(frame);
+})();
+</script><script id="fx-js">(function(){
+"use strict";
+var d=document,root=d.documentElement;
+
+/* ---------- Marquee: nhân đôi nội dung để chạy liền mạch ---------- */
+function marquee(){
+  [].forEach.call(d.querySelectorAll(".marquee>div"),function(m){
+    if(m.getAttribute("data-fx"))return;
+    m.setAttribute("data-fx","1");
+    m.innerHTML=m.innerHTML+m.innerHTML;
+    if(m.children.length<10)m.innerHTML=m.innerHTML+m.innerHTML;/* đảm bảo đủ rộng cho màn lớn */
+  });
+}
+
+/* ---------- Hiện dần khi cuộn ---------- */
+function motionOff(){
+  try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return true;}catch(e){}
+  try{if(localStorage.getItem("an-motion")==="off")return true;}catch(e){}
+  return false;
+}
+function scrollReveal(){
+  if(motionOff()||!("IntersectionObserver" in window))return;
+  var groups=[
+    ["up",".hero-content>div>*,.hero-bottom,.section-top>*,.section-title,.job,.job-lead,.earlier article,.story-note p,.more-visuals,.project-title,.seo-pullquote,.contact .wrap>*,.footer,.tools,.next-copy,.education"],
+    ["zoom",".hero-photo,.visual,.new-video,.video-feature,.video-grid article,.edu-stats>div,.strategy-step"],
+    ["left",".project-copy,.seo-story>div:first-child,.profile-photo"],
+    ["right",".seo-story>div:last-child,.profile-layout>div:last-child"]
+  ];
+  var skip="header,.b2b-intro,dialog,template,.sound-dock,.global-nature,.marquee,.progress";
+  var seen=new Set(),items=[];
+  groups.forEach(function(g){
+    [].forEach.call(d.querySelectorAll(g[1]),function(el){
+      if(seen.has(el)||el.classList.contains("reveal")||el.closest(skip))return;
+      /* tránh làm mờ chồng: bỏ qua nếu tổ tiên cũng là mục tiêu của nhóm "up/zoom/left/right" đã chọn */
+      seen.add(el);items.push([el,g[0]]);
+    });
+  });
+  /* bỏ các phần tử nằm trong phần tử cha cũng được hiệu ứng, tránh hiệu ứng kép */
+  items=items.filter(function(it){
+    var p=it[0].parentElement;
+    while(p){if(seen.has(p))return false;p=p.parentElement;}
+    return true;
+  });
+  var count=new Map();
+  items.forEach(function(it){
+    var el=it[0],par=el.parentElement,n=count.get(par)||0;count.set(par,n+1);
+    el.classList.add("sr");
+    if(it[1]!=="up")el.classList.add("sr-"+it[1]);
+    el.style.setProperty("--sr-d",Math.min(n*90,420)+"ms");
+    el.__srd=Math.min(n*90,420);
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting&&e.boundingClientRect.top>0)return;
+      var el=e.target;io.unobserve(el);
+      el.classList.add("sr-in");
+      setTimeout(function(){/* trả lại style gốc để hover/transition cũ hoạt động */
+        el.classList.remove("sr","sr-in","sr-left","sr-right","sr-zoom");
+        el.style.removeProperty("--sr-d");
+      },1300+(el.__srd||0));
+    });
+  },{threshold:0.12,rootMargin:"0px 0px -7% 0px"});
+  function go(){items.forEach(function(it){io.observe(it[0]);});}
+  if(root.getAttribute("data-b2b")==="on"){
+    var started=false,run=function(){if(started)return;started=true;go();};
+    window.addEventListener("b2b-intro-end",function(){setTimeout(run,80);});
+    setTimeout(run,9000);
+  }else go();
+}
+
+/* ---------- Âm thanh nền (WebAudio, không cần file) ---------- */
+function sound(){
+  var btn=d.getElementById("sound-toggle"),vol=d.getElementById("sound-volume"),st=d.getElementById("sound-status");
+  if(!btn)return;
+  /* gỡ trình xử lý cũ bằng cách thay bản sao; chặn lan truyền phòng khi cũ dùng delegation */
+  var nb=btn.cloneNode(true);btn.parentNode.replaceChild(nb,btn);btn=nb;
+  if(vol){var nv=vol.cloneNode(true);vol.parentNode.replaceChild(nv,vol);vol=nv;}
+  [].forEach.call(d.querySelectorAll("audio"),function(a){try{a.pause();a.muted=true;}catch(e){}});
+
+  var AC=window.AudioContext||window.webkitAudioContext;
+  var ctx=null,master=null,on=false,chirpT=0,analyser=null;
+  var lang=function(){var l=d.getElementById("lang");return(root.lang==="en"||(l&&l.getAttribute("data-l")==="en"))?"en":"vi";};
+  function label(){
+    var en=lang()==="en",small=en?"Ocean · birds · soft pad":"Biển · chim · nhạc nhẹ";
+    btn.innerHTML="♫ "+(on?(en?"Sound on":"Tắt âm thanh"):(en?"Turn sound on":"Bật âm thanh"))+"<small>"+small+"</small>";
+    btn.setAttribute("aria-pressed",on?"true":"false");
+    if(st)st.textContent=on?(en?"Sound on":"Âm thanh đang bật"):(en?"Sound off":"Âm thanh đã tắt");
+  }
+  function level(){var v=vol?(+vol.value||0)/100:.25;return Math.pow(v,1.5)*1.6;}/* đường cong cảm nhận */
+
+  function noiseBuf(sec){
+    var n=ctx.sampleRate*sec,b=ctx.createBuffer(2,n,ctx.sampleRate),c,ch,i,l;
+    for(c=0;c<2;c++){ch=b.getChannelData(c);l=0;for(i=0;i<n;i++){l=(l+0.02*(Math.random()*2-1))/1.02;ch[i]=l*3.5;}}/* nhiễu nâu */
+    return b;
+  }
+  function build(){
+    ctx=new AC();
+    master=ctx.createGain();master.gain.value=0;
+    analyser=ctx.createAnalyser();analyser.fftSize=1024;
+    var comp=ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=6;master.connect(comp);comp.connect(analyser);analyser.connect(ctx.destination);
+    window.__snd={ctx:ctx,analyser:analyser};
+    /* sóng biển: nhiễu nâu qua lowpass, âm lượng nhấp nhô chậm */
+    var src=ctx.createBufferSource();src.buffer=noiseBuf(6);src.loop=true;
+    var lp=ctx.createBiquadFilter();lp.type="lowpass";lp.frequency.value=700;lp.Q.value=.4;
+    var wave=ctx.createGain();wave.gain.value=.55;
+    var lfo=ctx.createOscillator();lfo.frequency.value=.11;
+    var lg=ctx.createGain();lg.gain.value=.4;lfo.connect(lg);lg.connect(wave.gain);
+    var lfo2=ctx.createOscillator();lfo2.frequency.value=.07;
+    var lg2=ctx.createGain();lg2.gain.value=320;lfo2.connect(lg2);lg2.connect(lp.frequency);
+    src.connect(lp);lp.connect(wave);wave.connect(master);
+    src.start();lfo.start();lfo2.start();
+    /* pad nhẹ: hợp âm Asus2 */
+    var padG=ctx.createGain();padG.gain.value=.085;
+    var padF=ctx.createBiquadFilter();padF.type="lowpass";padF.frequency.value=1100;
+    padG.connect(padF);padF.connect(master);
+    [110,164.81,246.94,277.18].forEach(function(f,i){
+      [-4,4].forEach(function(det){
+        var o=ctx.createOscillator();o.type=i%2?"triangle":"sine";o.frequency.value=f;o.detune.value=det;
+        var g=ctx.createGain();g.gain.value=.25/(1+i*.35);o.connect(g);g.connect(padG);o.start();
+      });
+    });
+    var pl=ctx.createOscillator();pl.frequency.value=.05;
+    var plg=ctx.createGain();plg.gain.value=.03;pl.connect(plg);plg.connect(padG.gain);pl.start();
+  }
+  function chirp(){
+    if(!on||!ctx)return;
+    var t=ctx.currentTime,n=2+(Math.random()*3|0),base=2600+Math.random()*1400,i;
+    for(i=0;i<n;i++){
+      var o=ctx.createOscillator(),g=ctx.createGain(),s=t+i*.13;
+      o.type="sine";o.frequency.setValueAtTime(base,s);
+      o.frequency.exponentialRampToValueAtTime(base*(1.25+Math.random()*.4),s+.07);
+      o.frequency.exponentialRampToValueAtTime(base*.9,s+.11);
+      g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(.05,s+.015);g.gain.exponentialRampToValueAtTime(.0008,s+.12);
+      o.connect(g);g.connect(master);o.start(s);o.stop(s+.14);
+    }
+    chirpT=setTimeout(chirp,6000+Math.random()*9000);
+  }
+  function setOn(v){
+    on=v;label();
+    if(on){
+      if(!AC)return;
+      if(!ctx)build();
+      var go=function(){
+        master.gain.cancelScheduledValues(ctx.currentTime);
+        master.gain.setTargetAtTime(level(),ctx.currentTime,.5);
+        clearTimeout(chirpT);chirpT=setTimeout(chirp,2500);
+      };
+      if(ctx.state==="suspended")ctx.resume().then(go,go);else go();
+    }else if(ctx){
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(0,ctx.currentTime,.25);
+      clearTimeout(chirpT);
+    }
+  }
+  btn.addEventListener("click",function(e){e.stopImmediatePropagation();e.stopPropagation();setOn(!on);},true);
+  btn.addEventListener("click",function(e){e.stopImmediatePropagation();});
+  if(vol)vol.addEventListener("input",function(e){e.stopImmediatePropagation();e.stopPropagation();if(on&&ctx)master.gain.setTargetAtTime(level(),ctx.currentTime,.1);},true);
+  d.addEventListener("visibilitychange",function(){if(!ctx)return;if(d.hidden)ctx.suspend();else if(on)ctx.resume();});
+  var lb=d.getElementById("lang");if(lb)lb.addEventListener("click",function(){setTimeout(label,30);});
+  label();
+}
+
+function init(){marquee();scrollReveal();setTimeout(sound,0);}
+if(d.readyState==="complete")init();else window.addEventListener("load",init);
 })();
 </script></body></html>
