@@ -1,6 +1,155 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0066cf"><title>Phạm Nhật An | Marketing, Content & SEO</title><meta name="description" content="Kinh nghiệm và sản phẩm của Phạm Nhật An: TMA, OnPoint, HH Glory, nội dung social, SEO và video.">
-<script>(function(){var d=document.documentElement,off=false;try{off=matchMedia("(prefers-reduced-motion: reduce)").matches||localStorage.getItem("an-motion")==="off"}catch(e){}if(!off)d.setAttribute("data-b2b","on")})()</script><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/extra.css"><link rel="stylesheet" href="assets/intro-b2b.css"></head><body><div class="b2b-intro" id="b2b-intro" role="dialog" aria-label="Giới thiệu" aria-modal="true"><canvas aria-hidden="true"></canvas><div class="b2b-vignette" aria-hidden="true"></div><div class="b2b-hud"><div class="b2b-top"><span class="b2b-brand">NHẬT AN<i>.</i></span><span data-en="Portfolio 2026">Portfolio 2026</span></div><div class="b2b-copy"><p class="b2b-eyebrow"><span class="dot"></span><span data-en="B2B Tech Marketing">Marketing B2B công nghệ</span></p><h1 class="b2b-title" aria-label="Phạm Nhật An"><span class="ln"><span>Phạm</span></span><span class="ln"><span class="grad">Nhật An</span></span></h1><p class="b2b-tag" data-en="Turning technical value into content that buyers understand.">Biến giá trị kỹ thuật thành nội dung người mua hiểu được.</p></div><div class="b2b-bottom"><ol class="b2b-steps" aria-hidden="true"><li><b>01</b><span data-en="Buyer research">Nghiên cứu người mua</span></li><li><b>02</b><span data-en="Content &amp; SEO">Nội dung &amp; SEO</span></li><li><b>03</b><span data-en="Measurement">Đo lường</span></li></ol><div class="b2b-right"><div class="b2b-progress" aria-hidden="true"><span class="b2b-pct">0%</span><span class="b2b-bar"><i></i></span></div><button class="b2b-skip" type="button"><span data-en="Skip">Bỏ qua</span><kbd>Esc</kbd></button></div></div></div></div><div class="intro" id="intro" aria-label="Intro"><canvas aria-hidden="true"></canvas><div class="bar t"></div><div class="bar b"></div><div class="intro-stage" aria-hidden="true"><p class="intro-line">Mọi hành trình đều bắt đầu từ một cú nhảy.</p><div><h2 class="intro-title"></h2><p class="intro-sub">MARKETING · CONTENT · SEO</p></div></div><button class="intro-skip" type="button">Bỏ qua</button></div><div class="global-nature" aria-hidden="true"><svg class="bird" style="--top:16%;--speed:37s;--delay:-9s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:22%;--speed:45s;--delay:-24s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:12%;--speed:51s;--delay:-34s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:30%;--speed:61s;--delay:-5s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="shore " viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg><svg class="shore back" viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg></div><div class="sound-dock"><button id="sound-toggle" aria-pressed="false">♫ Bật âm thanh<small>Biển · chim · nhạc nhẹ</small></button><label>Âm lượng<br><input id="sound-volume" type="range" min="0" max="100" value="25" aria-label="Âm lượng âm thanh nền"></label><span id="sound-status" class="sr-only" role="status"></span></div>
+<script>(function(){var d=document.documentElement,off=false;try{off=matchMedia("(prefers-reduced-motion: reduce)").matches||localStorage.getItem("an-motion")==="off"}catch(e){}if(/[?&]intro=1/.test(location.search))off=false;if(!off)d.setAttribute("data-b2b","on")})()</script><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/extra.css"><style>/* ==========================================================
+   Intro B2B · mạng lưới dữ liệu 3D
+   Thay thế intro "cú nhảy" cũ. Không phụ thuộc style.css.
+   ========================================================== */
+
+/* Ẩn intro cũ nhưng giữ trong DOM để script cũ không báo lỗi */
+#intro{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+
+.b2b-intro{
+  display:none;
+  position:fixed;inset:0;
+  z-index:2147483000;
+  background:
+    radial-gradient(1200px 700px at 68% 48%,#0a2150 0%,rgba(10,33,80,0) 60%),
+    linear-gradient(180deg,#040a17 0%,#071328 55%,#040a17 100%);
+  color:#eaf2ff;
+  font-family:"Inter","Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+html[data-b2b="on"] .b2b-intro{display:block;animation:b2bFail .6s 7s forwards}
+@keyframes b2bFail{to{opacity:0;visibility:hidden;pointer-events:none}}
+
+.b2b-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.b2b-vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 60% 48%,transparent 34%,rgba(4,10,23,.55) 72%,rgba(4,10,23,.92) 100%);
+}
+
+/* ---------- HUD ---------- */
+.b2b-hud{
+  position:absolute;inset:0;
+  display:grid;grid-template-rows:auto 1fr auto;
+  padding:clamp(20px,3.2vw,44px);
+  pointer-events:none;
+  transition:opacity .6s ease .1s,transform .8s cubic-bezier(.4,0,.2,1),filter .6s ease;
+}
+.b2b-intro.leaving{opacity:0;transition:opacity .6s cubic-bezier(.5,0,.8,.4) .12s}
+.b2b-intro.leaving .b2b-hud{transform:scale(1.05);filter:blur(6px);opacity:0}
+.b2b-intro.leaving.fast{transition-duration:.32s;transition-delay:.04s}
+.b2b-intro.leaving.fast .b2b-hud{transition-duration:.3s;transition-delay:0s}
+
+.b2b-top{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(206,224,255,.66);
+  opacity:0;
+}
+.b2b-brand{font-weight:700;letter-spacing:.16em;color:#fff}
+.b2b-brand i{font-style:normal;color:#3aa0ff}
+
+.b2b-copy{align-self:center;max-width:min(640px,46vw)}
+.b2b-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:#8cc6ff;margin:0 0 clamp(14px,2vw,26px);
+  opacity:0;transform:translateY(10px);
+}
+.b2b-eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:#3fd0ff;
+  box-shadow:0 0 0 0 rgba(63,208,255,.6);animation:b2bPing 1.8s ease-out infinite;
+}
+@keyframes b2bPing{70%,100%{box-shadow:0 0 0 12px rgba(63,208,255,0)}}
+
+.b2b-title{
+  margin:0;font-weight:650;line-height:.98;letter-spacing:-.035em;
+  font-size:clamp(48px,7.2vw,108px);color:#fff;
+}
+.b2b-title .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.b2b-title .ln>span{display:block;transform:translateY(108%)}
+.b2b-title .grad{
+  background:linear-gradient(100deg,#79c8ff 0%,#2f8bff 55%,#93e6ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+.b2b-tag{
+  margin:clamp(18px,2.2vw,30px) 0 0;max-width:30ch;
+  font-size:clamp(16px,1.45vw,21px);line-height:1.5;color:rgba(226,237,255,.82);
+  opacity:0;transform:translateY(12px);
+}
+
+.b2b-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;
+  opacity:0;
+}
+.b2b-steps{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.4vw,34px)}
+.b2b-steps li{
+  position:relative;min-width:118px;padding-top:11px;
+  border-top:1px solid rgba(160,200,255,.2);
+  font-size:12px;letter-spacing:.03em;line-height:1.35;color:rgba(200,220,250,.4);
+  display:flex;flex-direction:column;gap:4px;
+  transition:color .5s ease;
+}
+.b2b-steps li::after{
+  content:"";position:absolute;left:0;top:-1px;height:1px;width:0;
+  background:linear-gradient(90deg,#2f8bff,#7fdcff);transition:width .7s cubic-bezier(.2,.8,.2,1);
+}
+.b2b-steps li.on{color:#fff}
+.b2b-steps li.on::after{width:100%}
+.b2b-steps b{
+  font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:#4aa8ff;letter-spacing:.08em;
+}
+
+.b2b-right{display:flex;align-items:center;gap:18px;pointer-events:auto}
+.b2b-progress{display:flex;align-items:center;gap:12px}
+.b2b-pct{
+  font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:rgba(206,224,255,.7);min-width:3.2ch;text-align:right;font-variant-numeric:tabular-nums;
+}
+.b2b-bar{width:clamp(70px,10vw,130px);height:2px;background:rgba(255,255,255,.14);overflow:hidden}
+.b2b-bar i{display:block;height:100%;background:linear-gradient(90deg,#2f8bff,#7fdcff);transform-origin:left;transform:scaleX(0)}
+.b2b-skip{
+  pointer-events:auto;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.03);
+  color:#dbe8ff;font:500 13px/1 inherit;font-family:inherit;
+  transition:background .25s,border-color .25s;
+}
+.b2b-skip:hover,.b2b-skip:focus-visible{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);outline:none}
+.b2b-skip kbd{
+  font:500 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  padding:3px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.22);color:rgba(219,232,255,.7);
+}
+
+/* ---------- Timeline (chạy khi có .play) ---------- */
+.b2b-intro.play .b2b-top{animation:b2bFade .8s .15s ease forwards}
+.b2b-intro.play .b2b-bottom{animation:b2bFade .8s .3s ease forwards}
+.b2b-intro.play .b2b-eyebrow{animation:b2bUp .8s .45s cubic-bezier(.2,.8,.2,1) forwards}
+.b2b-intro.play .b2b-title .ln>span{animation:b2bRise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.b2b-intro.play .b2b-title .ln:nth-child(1)>span{animation-delay:.7s}
+.b2b-intro.play .b2b-title .ln:nth-child(2)>span{animation-delay:.85s}
+.b2b-intro.play .b2b-tag{animation:b2bUp .9s 1.45s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes b2bFade{to{opacity:1}}
+@keyframes b2bUp{to{opacity:1;transform:none}}
+@keyframes b2bRise{to{transform:none}}
+
+/* ---------- Màn hình dọc / điện thoại ---------- */
+@media (max-width:819px),(max-aspect-ratio:20/21){
+  .b2b-copy{align-self:end;max-width:none;margin-bottom:clamp(8px,2vh,24px)}
+  .b2b-title{font-size:clamp(44px,13.5vw,76px)}
+  .b2b-tag{max-width:34ch}
+  .b2b-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 18px;width:100%}
+  .b2b-steps li{min-width:0}
+  .b2b-bottom{flex-direction:column;align-items:stretch}
+  .b2b-right{justify-content:space-between}
+}
+
+
+</style></head><body><div class="b2b-intro" id="b2b-intro" role="dialog" aria-label="Giới thiệu" aria-modal="true"><canvas aria-hidden="true"></canvas><div class="b2b-vignette" aria-hidden="true"></div><div class="b2b-hud"><div class="b2b-top"><span class="b2b-brand">NHẬT AN<i>.</i></span><span data-en="Portfolio 2026">Portfolio 2026</span></div><div class="b2b-copy"><p class="b2b-eyebrow"><span class="dot"></span><span data-en="B2B Tech Marketing">Marketing B2B công nghệ</span></p><h1 class="b2b-title" aria-label="Phạm Nhật An"><span class="ln"><span>Phạm</span></span><span class="ln"><span class="grad">Nhật An</span></span></h1><p class="b2b-tag" data-en="Turning technical value into content that buyers understand.">Biến giá trị kỹ thuật thành nội dung người mua hiểu được.</p></div><div class="b2b-bottom"><ol class="b2b-steps" aria-hidden="true"><li><b>01</b><span data-en="Buyer research">Nghiên cứu người mua</span></li><li><b>02</b><span data-en="Content &amp; SEO">Nội dung &amp; SEO</span></li><li><b>03</b><span data-en="Measurement">Đo lường</span></li></ol><div class="b2b-right"><div class="b2b-progress" aria-hidden="true"><span class="b2b-pct">0%</span><span class="b2b-bar"><i></i></span></div><button class="b2b-skip" type="button"><span data-en="Skip">Bỏ qua</span><kbd>Esc</kbd></button></div></div></div></div><div class="intro" id="intro" aria-label="Intro"><canvas aria-hidden="true"></canvas><div class="bar t"></div><div class="bar b"></div><div class="intro-stage" aria-hidden="true"><p class="intro-line">Mọi hành trình đều bắt đầu từ một cú nhảy.</p><div><h2 class="intro-title"></h2><p class="intro-sub">MARKETING · CONTENT · SEO</p></div></div><button class="intro-skip" type="button">Bỏ qua</button></div><div class="global-nature" aria-hidden="true"><svg class="bird" style="--top:16%;--speed:37s;--delay:-9s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:22%;--speed:45s;--delay:-24s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:12%;--speed:51s;--delay:-34s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="bird" style="--top:30%;--speed:61s;--delay:-5s" viewBox="0 0 50 25"><path d="M2 18Q14 0 25 17Q37 1 48 18" stroke="currentColor" fill="none" stroke-width="2"/></svg><svg class="shore " viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg><svg class="shore back" viewBox="0 0 1400 180" preserveAspectRatio="none"><path d="M0 65Q175 0 350 65T700 65T1050 65T1400 65V180H0Z" fill="#24a4e8"/><path d="M0 85Q175 30 350 85T700 85T1050 85T1400 85" fill="none" stroke="white"/></svg></div><div class="sound-dock"><button id="sound-toggle" aria-pressed="false">♫ Bật âm thanh<small>Biển · chim · nhạc nhẹ</small></button><label>Âm lượng<br><input id="sound-volume" type="range" min="0" max="100" value="25" aria-label="Âm lượng âm thanh nền"></label><span id="sound-status" class="sr-only" role="status"></span></div>
 <a href="#experience" class="skip">Đi đến kinh nghiệm</a><div class="progress" aria-hidden="true"></div>
 <header><nav class="wrap nav" aria-label="Điều hướng chính"><a href="#home" class="brand">NHẬT AN<span>.</span></a><div class="navlinks" id="navlinks"><a href="#experience">Kinh nghiệm</a><a href="#works">Hình ảnh</a><a href="#videos">Video</a><a href="#b2b">Dự án B2B</a><a href="#contact">Liên hệ</a></div><button class="lang" id="lang" data-l="vi" aria-label="Switch to English"><span>VI</span><span>EN</span></button><button class="motion" id="motion" aria-pressed="true">Hiệu ứng: bật</button><button class="menu" id="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Mở menu">☰</button></nav></header>
 <main>
@@ -31,4 +180,347 @@
 <template id="case-linkedin"><h2 id="dialog-title">Kế hoạch LinkedIn cho thương hiệu công nghệ tại Úc</h2><p>Đề xuất xây kênh từ đầu để người mua B2B hiểu năng lực, thấy bằng chứng và tìm đến nội dung website liên quan.</p><h3>Phần việc của mình</h3><ul><li>Nghiên cứu thị trường, đối thủ và các nhóm tham gia quyết định mua: người quyết định, người sử dụng, người đánh giá kỹ thuật.</li><li>Đề xuất định vị nội dung, content pillars và format phù hợp.</li><li>Xây roadmap 90 ngày, luồng duyệt nội dung và yêu cầu đối với hình ảnh.</li><li>Đề xuất đo lường visibility, engagement, website interest và business contribution.</li></ul><h3>Đầu ra</h3><p>Proposal deck, kế hoạch nội dung, roadmap và khung đo lường bằng LinkedIn Analytics, UTM/GA4 cùng ghi nhận từ sales.</p><h3>Trạng thái</h3><p>Đây là sản phẩm nghiên cứu và lập kế hoạch. Portfolio trình bày đầu ra của công việc; chưa đưa ra kết quả tăng trưởng hay doanh thu từ triển khai.</p></template>
 <template id="case-seo"><h2 id="dialog-title">SEO content: từ chủ đề kỹ thuật đến bài viết dễ hiểu</h2><p>Chủ đề tiêu biểu: Document Intelligence và xử lý hóa đơn, hướng đến người đọc doanh nghiệp tại Úc.</p><h3>Phần việc của mình</h3><ul><li>Nghiên cứu primary/secondary keywords và search intent.</li><li>Tổ chức bài viết theo vấn đề thực tế, dữ kiện và cách giải pháp được áp dụng.</li><li>Rà soát nguồn số liệu, ý nghĩa của benchmark và các claim trong bài.</li><li>Biên tập Australian English, meta title/description, heading và internal links phù hợp.</li></ul><h3>Một điểm kiểm tra cụ thể</h3><p>Phân biệt số liệu so sánh chi phí xử lý PDF và eInvoice với mức tiết kiệm của một giải pháp AI. Khi chưa có dữ liệu triển khai tương ứng, mình điều chỉnh câu chữ để tránh gán kết quả cho sản phẩm.</p><h3>Đầu ra</h3><p>Bản thảo và bản biên tập nội dung SEO; cấu trúc heading, metadata, nguồn tham khảo và gợi ý liên kết nội bộ.</p></template>
 <template id="case-materials"><h2 id="dialog-title">Tài liệu marketing & nội dung website</h2><p>Trong vai trò Marketing Intern tại TMA Technology Group, mình hỗ trợ chuyển thông tin sản phẩm và giải pháp thành tài liệu phục vụ truyền thông.</p><h3>Phần việc của mình</h3><ul><li>Nghiên cứu nhu cầu khách hàng và yêu cầu kinh doanh để hỗ trợ nội dung.</li><li>Chuẩn bị brochure và presentation deck, sắp xếp thông tin để người đọc dễ theo dõi.</li><li>Phát triển nội dung SEO, xuất bản trên CMS và tối ưu on-page.</li><li>Chuẩn bị hình ảnh hỗ trợ nội dung website.</li></ul><h3>Đầu ra</h3><p>Brochure, presentation deck, nội dung website và hình ảnh hỗ trợ theo từng yêu cầu công việc.</p></template>
-<script src="assets/intro-b2b.js" defer></script><script src="assets/script.js" defer></script><script src="assets/extra.js" defer></script><script src="assets/extra2.js" defer></script></body></html>
+<script src="assets/script.js" defer></script><script src="assets/extra.js" defer></script><script src="assets/extra2.js" defer></script><script>/* ==========================================================
+   Intro B2B · mạng lưới dữ liệu 3D (canvas 2D, tự dựng phối cảnh)
+   - Quả cầu node + cạnh quay theo chuột, các "gói nội dung" chạy trên cạnh
+   - Hai vành quỹ đạo, sàn lưới phối cảnh cuộn về phía người xem
+   - Kết thúc bằng cú "đẩy camera" rồi lộ trang
+   Không dùng thư viện ngoài.
+   ========================================================== */
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  if (root.getAttribute("data-b2b") !== "on") return;
+
+  var el = document.getElementById("b2b-intro");
+  if (!el) { root.removeAttribute("data-b2b"); return; }
+
+  var cv = el.querySelector("canvas");
+  var ctx = cv && cv.getContext ? cv.getContext("2d") : null;
+  var skipBtn = el.querySelector(".b2b-skip");
+  var pctEl = el.querySelector(".b2b-pct");
+  var barEl = el.querySelector(".b2b-bar i");
+  var steps = [].slice.call(el.querySelectorAll(".b2b-steps li"));
+
+  /* ---------- ngôn ngữ ---------- */
+  var langBtn = document.getElementById("lang");
+  var isEN = root.lang === "en" || (langBtn && langBtn.getAttribute("data-l") === "en");
+  if (isEN) {
+    [].forEach.call(el.querySelectorAll("[data-en]"), function (n) {
+      n.textContent = n.getAttribute("data-en");
+    });
+  }
+
+  /* ---------- khóa cuộn trang trong lúc intro ---------- */
+  var prevOverflow = root.style.overflow;
+  root.style.overflow = "hidden";
+
+  /* ---------- hằng số thời gian (ms) ---------- */
+  var PROGRESS_MS = 3200;
+  var EXIT_AT = 3450;
+  var EXIT_MS = 750;
+  var FAST_EXIT = 380;
+  var STEP_FIRST = 1900, STEP_GAP = 420;
+
+  /* ---------- tiện ích ---------- */
+  var TAU = Math.PI * 2;
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+  function easeIn(x) { return x * x * x; }
+  var seed = 7;
+  function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+
+  /* ---------- khung vẽ ---------- */
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, cx = 0, cy = 0, R = 0, D = 0;
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    if (cv) {
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      if (ctx) ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    var portrait = W < 820 || H > W * 1.05;
+    if (portrait) { cx = W * 0.5; cy = H * 0.31; R = Math.min(W * 0.34, H * 0.2); }
+    else { cx = W * 0.68; cy = H * 0.5; R = Math.min(W * 0.2, H * 0.34); }
+    D = R * 4.2;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  /* ---------- con trỏ → góc nhìn ---------- */
+  var mx = 0, my = 0, tx = 0, ty = 0;
+  function onMove(e) { tx = (e.clientX / W - 0.5) * 2; ty = (e.clientY / H - 0.5) * 2; }
+  window.addEventListener("pointermove", onMove, { passive: true });
+
+  /* ---------- dữ liệu cảnh ---------- */
+  var N = 200, GA = Math.PI * (3 - Math.sqrt(5));
+  var nodes = [], edges = [], i, j;
+  for (i = 0; i < N; i++) {
+    var ny = 1 - 2 * (i + 0.5) / N, nr = Math.sqrt(1 - ny * ny), th = i * GA;
+    var sx = rnd() * 2 - 1, sy = rnd() * 2 - 1, sz = rnd() * 2 - 1;
+    var sl = Math.sqrt(sx * sx + sy * sy + sz * sz) || 1, sc = 1.5 + rnd() * 1.2;
+    nodes.push({
+      x: Math.cos(th) * nr, y: ny, z: Math.sin(th) * nr,
+      sx: sx / sl * sc, sy: sy / sl * sc, sz: sz / sl * sc,
+      d: rnd() * 0.42,
+      hub: i % 23 === 5
+    });
+  }
+  var TH2 = 0.36 * 0.36;
+  for (i = 0; i < N; i++) {
+    for (j = i + 1; j < N; j++) {
+      var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y, dz = nodes[i].z - nodes[j].z;
+      if (dx * dx + dy * dy + dz * dz < TH2) edges.push(i, j);
+    }
+  }
+  var EC = edges.length / 2;
+  var PX = new Float32Array(N), PY = new Float32Array(N), PZ = new Float32Array(N),
+      PS = new Float32Array(N), PA = new Float32Array(N);
+  var LABELS = [
+    { i: 5, t: "SEO" },
+    { i: 51, t: "CONTENT" },
+    { i: 97, t: "B2B" }
+  ];
+  var pulses = [], lastSpawn = 0;
+
+  /* ---------- phép quay + chiếu phối cảnh ---------- */
+  var rx = 0, ry = 0, rz = 0, qx = 0, qy = 0, qs = 1;
+  var cyaw = 1, syaw = 0, cpit = 1, spit = 0, zoomV = 1;
+  function rot(x, y, z) {
+    var x1 = x * cyaw + z * syaw, z1 = -x * syaw + z * cyaw;
+    rx = x1; ry = y * cpit - z1 * spit; rz = y * spit + z1 * cpit;
+  }
+  function proj(x, y, z) {
+    var s = D / (D - z);
+    var X = cx + x * s, Y = cy + y * s;
+    qx = W * 0.5 + (X - W * 0.5) * zoomV;
+    qy = H * 0.5 + (Y - H * 0.5) * zoomV;
+    qs = s * zoomV;
+  }
+
+  /* ---------- vẽ ---------- */
+  function drawFloor(t, asm) {
+    var y0 = R * 1.5, k, z, a, b;
+    var g = ctx.createLinearGradient(0, cy, 0, H);
+    g.addColorStop(0, "rgba(60,140,255,0)");
+    g.addColorStop(1, "rgba(60,140,255," + (0.34 * asm).toFixed(3) + ")");
+    ctx.strokeStyle = g; ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (k = -9; k <= 9; k++) {
+      proj(k * R * 0.6, y0, -R * 6); a = qx; b = qy;
+      proj(k * R * 0.6, y0, R * 1.6); ctx.moveTo(a, b); ctx.lineTo(qx, qy);
+    }
+    var step = R * 0.7, off = ((t * 0.45) % 1) * step;
+    for (z = -R * 6 + off; z < R * 1.6; z += step) {
+      proj(-R * 6, y0, z); a = qx; b = qy;
+      proj(R * 6, y0, z); ctx.moveTo(a, b); ctx.lineTo(qx, qy);
+    }
+    ctx.stroke();
+
+    /* quầng sáng dưới quả cầu */
+    proj(0, y0, 0);
+    ctx.save();
+    ctx.translate(qx, qy); ctx.scale(1, 0.22);
+    var rg = ctx.createRadialGradient(0, 0, 0, 0, 0, R * 1.7 * qs);
+    rg.addColorStop(0, "rgba(0,120,255," + (0.4 * asm).toFixed(3) + ")");
+    rg.addColorStop(1, "rgba(0,120,255,0)");
+    ctx.fillStyle = rg;
+    ctx.fillRect(-R * 2 * qs, -R * 2 * qs, R * 4 * qs, R * 4 * qs);
+    ctx.restore();
+  }
+
+  function drawRing(t, rr, tz, tx_, speed, phase, alpha) {
+    if (alpha <= 0) return;
+    var seg = 72, ctx_ = Math.cos(tx_), stx = Math.sin(tx_), ctz = Math.cos(tz), stz = Math.sin(tz);
+    var k, a, x, z, y1, z1, x2, y2, px = 0, py = 0, d, first = true;
+    ctx.lineWidth = 1;
+    for (k = 0; k <= seg; k++) {
+      a = k / seg * TAU; x = Math.cos(a) * rr * R; z = Math.sin(a) * rr * R;
+      y1 = -z * stx; z1 = z * ctx_;
+      x2 = x * ctz - y1 * stz; y2 = x * stz + y1 * ctz;
+      rot(x2, y2, z1); proj(rx, ry, rz);
+      if (!first) {
+        d = clamp((rz / (rr * R) + 1) / 2, 0, 1);
+        ctx.strokeStyle = "rgba(110,190,255," + (alpha * (0.1 + 0.55 * d)).toFixed(3) + ")";
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(qx, qy); ctx.stroke();
+      }
+      px = qx; py = qy; first = false;
+    }
+    /* vệ tinh trên quỹ đạo */
+    a = t * speed + phase; x = Math.cos(a) * rr * R; z = Math.sin(a) * rr * R;
+    y1 = -z * stx; z1 = z * ctx_;
+    x2 = x * ctz - y1 * stz; y2 = x * stz + y1 * ctz;
+    rot(x2, y2, z1); proj(rx, ry, rz);
+    d = clamp((rz / (rr * R) + 1) / 2, 0, 1);
+    ctx.globalCompositeOperation = "lighter";
+    ctx.fillStyle = "rgba(80,190,255," + (alpha * 0.22 * (0.4 + d)).toFixed(3) + ")";
+    ctx.beginPath(); ctx.arc(qx, qy, 9 * qs, 0, TAU); ctx.fill();
+    ctx.fillStyle = "rgba(210,240,255," + (alpha * (0.5 + 0.5 * d)).toFixed(3) + ")";
+    ctx.beginPath(); ctx.arc(qx, qy, 2.6 * qs, 0, TAU); ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+  }
+
+  function draw(t, ex) {
+    zoomV = 1 + easeIn(ex) * 1.7;
+    ctx.clearRect(0, 0, W, H);
+
+    mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
+    var asm = clamp(t / 1.7, 0, 1);
+    var yaw = 0.7 + t * 0.26 + mx * 0.55, pit = -0.36 + my * 0.22;
+    cyaw = Math.cos(yaw); syaw = Math.sin(yaw); cpit = Math.cos(pit); spit = Math.sin(pit);
+
+    /* quầng sáng nền */
+    var bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 2.6);
+    bg.addColorStop(0, "rgba(0,102,207,.30)");
+    bg.addColorStop(1, "rgba(0,102,207,0)");
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+    drawFloor(t, clamp(t / 1.2, 0, 1));
+
+    /* node */
+    var n, p, e, k;
+    for (k = 0; k < N; k++) {
+      n = nodes[k];
+      p = clamp((asm - n.d) / (1 - 0.42), 0, 1); e = easeOut(p);
+      rot((n.sx + (n.x - n.sx) * e) * R, (n.sy + (n.y - n.sy) * e) * R, (n.sz + (n.z - n.sz) * e) * R);
+      proj(rx, ry, rz);
+      PX[k] = qx; PY[k] = qy; PZ[k] = rz / R; PS[k] = qs; PA[k] = 0.15 + 0.85 * p;
+    }
+
+    /* cạnh (gộp theo 4 mức độ sâu) */
+    var ef = clamp((asm - 0.55) / 0.45, 0, 1), bkt, d, a, b;
+    if (ef > 0) {
+      ctx.lineWidth = 1;
+      for (bkt = 0; bkt < 4; bkt++) {
+        ctx.beginPath();
+        for (k = 0; k < EC; k++) {
+          a = edges[k * 2]; b = edges[k * 2 + 1];
+          d = clamp(((PZ[a] + PZ[b]) * 0.5 + 1) / 2, 0, 0.999);
+          if ((d * 4 | 0) === bkt) { ctx.moveTo(PX[a], PY[a]); ctx.lineTo(PX[b], PY[b]); }
+        }
+        ctx.strokeStyle = "rgba(88,170,255," + ((0.05 + 0.12 * bkt) * ef).toFixed(3) + ")";
+        ctx.stroke();
+      }
+    }
+
+    /* gói nội dung chạy trên cạnh */
+    if (asm > 0.85 && t - lastSpawn > 0.11 && pulses.length < 14 && EC) {
+      var ei = (Math.random() * EC) | 0, sw = Math.random() < 0.5;
+      pulses.push({ a: edges[ei * 2 + (sw ? 1 : 0)], b: edges[ei * 2 + (sw ? 0 : 1)], s: t, d: 0.7 + Math.random() * 0.9 });
+      lastSpawn = t;
+    }
+    ctx.globalCompositeOperation = "lighter";
+    for (k = pulses.length - 1; k >= 0; k--) {
+      var pu = pulses[k], u = (t - pu.s) / pu.d;
+      if (u >= 1) { pulses.splice(k, 1); continue; }
+      var u2 = Math.max(0, u - 0.24), hx = PX[pu.a] + (PX[pu.b] - PX[pu.a]) * u, hy = PY[pu.a] + (PY[pu.b] - PY[pu.a]) * u;
+      var tx2 = PX[pu.a] + (PX[pu.b] - PX[pu.a]) * u2, ty2 = PY[pu.a] + (PY[pu.b] - PY[pu.a]) * u2;
+      var dn = clamp(((PZ[pu.a] + PZ[pu.b]) * 0.5 + 1) / 2, 0, 1), al = (0.3 + 0.7 * dn) * Math.sin(u * Math.PI);
+      ctx.strokeStyle = "rgba(120,215,255," + (al * 0.85).toFixed(3) + ")"; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(tx2, ty2); ctx.lineTo(hx, hy); ctx.stroke();
+      ctx.fillStyle = "rgba(90,200,255," + (al * 0.22).toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(hx, hy, 7, 0, TAU); ctx.fill();
+      ctx.fillStyle = "rgba(225,247,255," + al.toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(hx, hy, 2.1, 0, TAU); ctx.fill();
+    }
+    ctx.globalCompositeOperation = "source-over";
+
+    /* chấm node */
+    var pulse = 0.5 + 0.5 * Math.sin(t * 3.2), rad, al2;
+    for (k = 0; k < N; k++) {
+      d = clamp((PZ[k] + 1) / 2, 0, 1); n = nodes[k];
+      rad = Math.max(0.2, (0.8 + 1.9 * d) * PS[k] * (n.hub ? 1.8 : 1));
+      al2 = (0.18 + 0.82 * d) * PA[k];
+      ctx.fillStyle = (n.hub ? "rgba(120,215,255," : "rgba(175,218,255,") + al2.toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(PX[k], PY[k], rad, 0, TAU); ctx.fill();
+      if (n.hub && d > 0.4 && asm > 0.9) {
+        ctx.strokeStyle = "rgba(80,200,255," + (0.5 * (1 - pulse) * d).toFixed(3) + ")";
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(PX[k], PY[k], rad + 3 + pulse * 7, 0, TAU); ctx.stroke();
+      }
+    }
+
+    /* vành quỹ đạo */
+    var ringIn = clamp((t - 1.1) / 0.9, 0, 1);
+    drawRing(t, 1.42, 0.42 + t * 0.04, 0.2, 0.55, 0.0, ringIn * 0.9);
+    drawRing(t, 1.78, -0.55 - t * 0.03, -0.35, -0.38, 2.1, ringIn * 0.6);
+
+    /* nhãn gắn vào các hub */
+    var labelIn = clamp((t - 1.7) / 0.6, 0, 1);
+    if (labelIn > 0) {
+      ctx.font = "600 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace";
+      ctx.textBaseline = "middle";
+      try { ctx.letterSpacing = "1.5px"; } catch (err) { /* trình duyệt cũ */ }
+      for (k = 0; k < LABELS.length; k++) {
+        var li = LABELS[k].i, la = clamp(((PZ[li] + 1) / 2 - 0.62) / 0.25, 0, 1) * labelIn;
+        if (la <= 0) continue;
+        var dir = PX[li] >= cx ? 1 : -1, lx = PX[li], ly = PY[li];
+        ctx.strokeStyle = "rgba(130,205,255," + (la * 0.8).toFixed(3) + ")"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lx + dir * 24, ly - 22); ctx.lineTo(lx + dir * 62, ly - 22); ctx.stroke();
+        ctx.fillStyle = "rgba(225,240,255," + la.toFixed(3) + ")";
+        ctx.textAlign = dir > 0 ? "left" : "right";
+        ctx.fillText(LABELS[k].t, lx + dir * 70, ly - 22);
+      }
+      try { ctx.letterSpacing = "0px"; } catch (err2) { /* bỏ qua */ }
+    }
+  }
+
+  /* ---------- vòng lặp + kết thúc ---------- */
+  var t0 = 0, raf = 0, done = false, leaving = false, exitStart = 0, exitMs = EXIT_MS;
+
+  function startExit(now, fast) {
+    if (leaving) return;
+    leaving = true; exitStart = now; exitMs = fast ? FAST_EXIT : EXIT_MS;
+    el.classList.add("leaving"); if (fast) el.classList.add("fast");
+    if (pctEl) pctEl.textContent = "100%";
+    if (barEl) barEl.style.transform = "scaleX(1)";
+  }
+
+  function finish() {
+    if (done) return;
+    done = true;
+    cancelAnimationFrame(raf);
+    window.removeEventListener("resize", resize);
+    window.removeEventListener("pointermove", onMove);
+    document.removeEventListener("keydown", onKey);
+    root.removeAttribute("data-b2b");
+    root.classList.remove("intro-on");
+    root.style.overflow = prevOverflow;
+    if (el.parentNode) el.parentNode.removeChild(el);
+    try { window.dispatchEvent(new Event("b2b-intro-end")); } catch (e) { /* bỏ qua */ }
+  }
+
+  function frame(now) {
+    raf = requestAnimationFrame(frame);
+    if (!t0) t0 = now;
+    var ms = now - t0, t = ms / 1000, ex = 0, k;
+
+    if (!leaving) {
+      var prog = clamp(ms / PROGRESS_MS, 0, 1);
+      if (pctEl) pctEl.textContent = Math.round(prog * 100) + "%";
+      if (barEl) barEl.style.transform = "scaleX(" + prog.toFixed(3) + ")";
+      for (k = 0; k < steps.length; k++) {
+        if (ms > STEP_FIRST + k * STEP_GAP) steps[k].classList.add("on");
+      }
+      if (ms >= EXIT_AT) startExit(now, false);
+    }
+    if (leaving) {
+      ex = clamp((now - exitStart) / exitMs, 0, 1);
+      if (ex >= 1) { finish(); return; }
+    }
+    if (ctx) draw(t, ex);
+  }
+
+  function skip() { startExit(performance.now(), true); }
+  function onKey(e) { if (e.key === "Escape" || e.key === "Enter") skip(); }
+
+  if (skipBtn) skipBtn.addEventListener("click", function (e) { e.stopPropagation(); skip(); });
+  el.addEventListener("click", skip);
+  document.addEventListener("keydown", onKey);
+
+  el.classList.add("play");
+  if (skipBtn) { try { skipBtn.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } }
+  raf = requestAnimationFrame(frame);
+})();
+</script></body></html>
